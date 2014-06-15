@@ -5,7 +5,7 @@ require 'debugger'
 
 describe OracleOfBacon do
   before(:all) { FakeWeb.allow_net_connect = false }
-  describe 'instance', :pending => true do
+  describe 'instance' do
     before(:each) { @orb = OracleOfBacon.new('fake_api_key') }
     describe 'when new' do
       subject { @orb }
@@ -36,7 +36,7 @@ describe OracleOfBacon do
       end
     end
   end
-  describe 'parsing XML response', :pending => true do
+  describe 'parsing XML response' do
     describe 'for unauthorized access/invalid API key' do
       subject { OracleOfBacon::Response.new(File.read 'spec/unauthorized_access.xml') }
       its(:type) { should == :error }
